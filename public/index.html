@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>CHANGE ME</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="CHANGE ME">
+        <meta name="keywords" content="CHANGE ME">
+        <meta name="author" content="CHANGE ME">
+        <!-- Load jquery, bootstrap -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <!-- Custom CSS -->
+        <link rel="stylesheet" type="text/css" href="/style.css">
+        <!-- Custom CSS End -->
+    </head>
+
+    <body>
+        <header>            
+            <div class="main-head", id="main-head">
+                <a href="" class="main-title" id="main-title">SVG Viewer</a>
+                <nav>
+                    <ul class="menu-list" id="menu-list">
+                        <li><a href="">Home</a></li>
+                        <li><a href="#file-log-panel">File-Log Pannel</a></li>
+                        <li><a href="#svg-view-panel">SVG-View Pannel</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section class="file-log-panel" id="file-log-panel">
+            <div class="container" id="container">
+                <div class="row" id="row">
+                    <div class="col-sm-12 text-center">
+                        <h2>FILE-LOG PANEL</h2>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="log-table">
+                        <table class="table">
+                            <thead>
+                                <tr class="table-headers">
+                                    <th colspan="1" scope="colgroup">Image<br/>(Click To Download)</th>
+                                    <th colspan="1" scope="colgroup">File Name<br/>(Click To Download)</th>
+                                    <th colspan="1" scope="colgroup">File Size</th>
+                                    <th colspan="1" scope="colgroup">Number of Rectangles</th>
+                                    <th colspan="1" scope="colgroup">Number of Circles</th>
+                                    <th colspan="1" scope="colgroup">Number of Paths</th>
+                                    <th colspan="1" scope="colgroup">Number of Groups</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-body" id="table-body"></tbody>
+                        </table>
+                        
+                    </div>
+                    <div style="display: inline-block; margin-top: 50px;">
+                        <form enctype="multipart/form-data" method="post" action="/upload">
+                            <label for="upload-file">Upload File</label>
+                            <input type="file" class="btn btn-md upload-file" id="upload-file" name="uploadFile" value="Upload" onchange="this.form.submit()" accept=".svg">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="svg-view-panel" id="svg-view-panel">
+            <div class="container" id="container">
+                <div class="row" id="row">
+                    <div class="col-sm-12 text-center">
+                        <h2>SVG-VIEW PANEL</h2>
+                    </div>
+                </div>
+
+                <div class="row">
+                   <select class="drop-down" id="drop-down" onchange="change()">
+                       <option value="disable selected">Select SVG File</option>
+                   </select>
+                </div>
+
+                <div class="row">
+                    <div class="view-table" id="view-table">
+                        <h2></h2>
+                        <table class="view-panel-table" id="view-panel-table">
+                            <tr class="view-panel-image" id="view-panel-image">
+
+                            </tr>
+                            <tr>
+                                <th colspan="1" scope="colgroup">Title</th>
+                                <th colspan="2" scope="colgroup">Description</th>
+                            </tr>
+                            <tr class="title-row" id="title-row"></tr>
+                            <tr>
+                                <th>Component</th>
+                                <th>Summary</th>
+                                <th>Other Attributes</th>
+                            </tr>
+                            <tbody class="view-panel-body" id="view-panel-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-popup" id="form-popup">
+                <form class="attribute-form" id="attribute-form">
+                    <h2>Add/Edit Attributes</h2>
+
+                    <label for="name">Attribute Name:</label>
+                    <input type="text" id="attribute-form-name" placeholder="Enter name of Attribute" name="name" maxlength="650" required>
+
+                    <label for="value">Attribute Value:</label>
+                    <input type="text" id="attribute-form-value" placeHolder="Enter attribute value" name="value" maxlength="650" required>
+
+                    <button class="btn" id="edit-btn">Add/Edit</button>
+                    <button class="btn cancel" onclick="hideForm()">Close</button>
+                </form>
+            </div>
+            <div class="title-popup" id="title-popup">
+                <form class="title-form" id="title-form">
+                    <h2>Edit Title</h2>
+
+                    <label for="title">Title:</label>
+                    <input type="text" id="title-form-value" placeholder="Enter the title" name="title" maxlength="256" required>
+
+                    <button class="btn" id="edit-title">Edit</button>
+                    <button class="btn cancel" onclick="hideTitle()">Close</button>
+                </form>
+            </div>
+            <div class="desc-popup" id="desc-popup">
+                <form class="desc-form" id="desc-form">
+                    <h2>Edit Description</h2>
+
+                    <label for="desc">Attribute Name:</label>
+                    <input type="text" id="desc-form-value" placeholder="Enter the description" name="desc" maxlength="256" required>
+
+                    <button class="btn" id="edit-desc">Edit</button>
+                    <button class="btn cancel" onclick="hideDescription()">Close</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="additional" id="additional">
+            <div class="container" id="container">
+                <div class="row" id="row">
+                    <div class="col-sm-12 text-center">
+                        <h2>Additional Functionalities</h2>
+                    </div>
+                </div>
+
+
+                <div class="row" id="row">
+                    <div class="create-svg" id="create-svg">
+                        <h2>Create SVG</h2>
+                        <form enctype="multipart/form-data" method="POST" action="/createSvg" id="create-svg-form">
+                            <div style="display: inline-block; margin-right: 40px;">
+                                <label for="imageName">Filename (with .svg extension): </label>
+                                <input name="imageName" placeholder="Please enter filename ex: name.svg" accept=".svg" type="text" maxlength="256" required>
+                            </div>
+                            <div style="display: inline-block;">
+                                <label for="title">Title: </label>
+                                <input name="title" placeholder="Please enter title" type="text" maxlength="256" required>
+                            </div>
+                            <div style="display: inline-block; margin-top: 10px;">
+                                <label for="desc">Description: </label>
+                                <input name="desc" placeholder="Please enter title" type="text" maxlength="256" required>
+                            </div>
+                            <button type="submit" class="scale-btn" style="display: flex; margin-left: 480px; margin-top: 40px; text-align: center;" form="create-svg-form">Create SVG</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="row" id="row">
+                    <div class="add-shapes" id="add-shapes">
+                        <h2>Add Shapes</h2>
+                        <div style="display: inline-block;">
+                            <form enctype="multipart/form-data" method="POST" action="/addShape" id="add-shape-form">
+                                <select name="fileName" id="add_shape_dropdown">
+                                    <option value="disable selected">Select image</option>
+                                </select>
+                                <select id="c-shape" name="shape" onchange="showBlock()">
+                                    <option value="none" selected="selected">Select shape</option>
+                                    <option value="rect">Rectangle</option>
+                                    <option value="circle">Circle</option>
+                                </select>
+
+                            </form>
+                        </div>
+
+                        <div class="rect-block" id="rect-block" form="add-shape-form" style="display: none;">
+                            <label for="x">x: </label>
+                            <input name="x" type="number" id="x" min="0" step="any" form="add-shape-form" required>
+                            <label for="y">y: </label>
+                            <input name="y" type="number" id="y" min="0" step="any" form="add-shape-form" required>
+                            <label for="width">Width: </label>
+                            <input name="width" type="number" id="width" min="0" step="any" form="add-shape-form" required>
+                            <label for="height">height: </label>
+                            <input name="height" type="number" id="height" min="0" step="any" form="add-shape-form" required>
+                            <label for="units">units: </label>
+                            <select name="units" form="add-shape-form" id="uni">
+                                <option value="">none</option>
+                                <option value="cm">cm</option>
+                                <option value="ex">ex</option>
+                                <option value="em">em</option>
+                                <option value="px">px</option>
+                                <option value="pt">pt</option>
+                                <option value="pc">pc</option>
+                                <option value="in">in</option>
+                            </select>
+                        </div>
+
+                        <div class="circle-block" id="circle-block" form="add-shape-form" style="display: none;">
+                            <label for="cx">cx: </label>
+                            <input name="cx" type="number" min="0" step="any" id="cx" form="add-shape-form" required>
+                            <label for="cy">cy: </label>
+                            <input name="cy" type="number" min="0" step="any" id="cy"form="add-shape-form" required>
+                            <label for="r">r: </label>
+                            <input name="r" type="number" min="0" step="any" id="r"form="add-shape-form" required>
+                            <label for="units">units: </label>
+                            <select name="units" form="add-shape-form" id="sel">
+                                <option value="" >none</option>
+                                <option value="cm">cm</option>
+                                <option value="ex">ex</option>
+                                <option value="em">em</option>
+                                <option value="px">px</option>
+                                <option value="pt">pt</option>
+                                <option value="pc">pc</option>
+                                <option value="in">in</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="scale-btn" form="add-shape-form">Add Shape</button>
+                        
+                    </div>
+                </div>
+
+                <div class="row" id="row">
+                    <div class="scaling" id="scaling">
+                        <h2>Scale Images</h2>
+                        <div style="display: inline-block;">
+                            <form enctype="multipart/form-data" method="POST" action="/scaling" id="scale-form">
+                                <select name="fileName" id="scale-dropdown" class="scale-dropdown">
+                                    <option value="disable selected">Select image</option>
+                                </select>
+                                <select name="shape">
+                                    <option value="disable selected">Select shape</option>
+                                    <option value="rect">Rectangle</option>
+                                    <option value="circle">Circle</option>
+                                    <option value="path">Path</option>
+                                </select>
+                                <label for="scale">Scale factor :</label>
+                                <input type="number" name="scale" class="scale-input" min="1" step="1">
+                            </form>
+                            <button type="submit" class="scale-btn" form="scale-form">Scale</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leave me at the bottom of body -->
+        <script src="/index.js"></script>
+    </body>
+</html>
+
+
+
+
+
+
+

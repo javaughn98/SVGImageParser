@@ -1,0 +1,498 @@
+html {
+    width: 98%;
+    height: 100%;
+    min-height: 100%;
+    margin: 0 auto;
+    font-size: 16px;
+    background-color: rgb(20, 40, 60);
+}
+
+input {
+    background-color: rgb(20, 40, 60);
+    color: #FFFFCC;
+    border: 10px solid;
+    border-radius: 20px;
+    
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    min-height: 100%;
+    line-height: 1.75;
+    background-color: #C0C0C0;
+}
+
+
+.main-title {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 30px;
+    color: white;
+}
+.main-title:hover {
+    transition: all 500ms ease-in;
+    color: #FFFFCC;
+}
+
+
+header {
+    height: 100px;
+    line-height: 100px;
+    position: fixed;
+    z-index: 1;
+    width: 98%;
+}
+
+.menu-list {
+    list-style: none;
+}
+
+.menu-list li{
+    display: inline-block;
+}
+
+header nav {
+    float: right;
+}
+
+header nav ul li a {
+    padding-right: 25px;
+    font-weight: bold;
+    color: white;
+}
+
+header nav ul li a:hover {
+    text-decoration: none;
+    transition: all 500ms ease-in;
+    color: #FFFFCC;
+}
+
+.secondary {
+    background-color: rgb(20, 40, 60);
+    box-shadow: 0px 0px 20px 0px;
+    transition: all 200ms ease-in;
+}
+section {
+    background-color: #C0C0C0;
+    margin-bottom: 20px;
+    padding: 100px;
+}
+
+
+
+thead {
+    background-color: rgb(20, 40, 60);
+}
+
+
+th {
+    text-align: center;
+    color: #FFFFCC;
+}
+
+.table-css, tr {
+    text-align: center;
+    font-weight: bold;
+    border: 4px solid;
+    border-color: rgb(20, 40, 60);
+}
+
+.view-panel-body td {
+    text-align: center;
+    padding: 5px 10px 5px 10px;
+    border: 4px solid;
+    border-color: rgb(20, 40, 60);
+}
+.first {
+    position: relative;
+    top: 0;
+    right: 0;
+}
+
+.first {
+    font-size: 8px;
+    width: 92px;
+    height: 20px;
+}
+button:hover {
+    color: #FFFFCC;
+    background-color: rgb(20, 40, 60);
+    border-color: white;
+    transition: .3s ease-in;
+}
+
+.second{
+    position: relative;
+    bottom: 0;
+    right: 0;
+}
+
+.drop-down {
+    width: 180px;
+    height: 30px;
+    border: solid 2px;
+    border-radius: 5px;
+    margin-bottom: 100px;
+    margin-top: 100px;
+}
+
+.drop-down:hover {
+    color: #FFFFCC;
+    background-color: rgb(20, 40, 60);
+    border-color: white;
+    transition: .3s ease-in;
+}
+
+.view-panel-table {
+    width: 100%;
+}
+
+.form-popup {
+    display: none;
+    position: fixed;
+    left: 40%;
+    top: 20%;
+    border: 6px solid rgb(20, 40, 60);
+    z-index: 9;
+}
+
+.attribute-form {
+    max-width: 500px;
+    padding: 20px;
+    background-color: white;
+}
+
+.attribute-form input[type=text] {
+    width: 60%;
+    padding: 10px 5px 10px 5px;
+    margin: 5px 0 22px 0;
+    border: 3px solid;
+    border-radius: 10px;
+    color: black;
+    background: #f1f1f1;
+}
+
+.attribute-form input[type=text]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+.attribute-form .btn {
+    background-color: #3E3E3E;
+    color: black;
+    padding: 5px 15px;
+    border: none;
+    font-weight: 400;
+    margin-left: 20px;
+    cursor: pointer;
+    width: 40%;
+    height: 40px;
+    opacity: 0.8;
+  }
+
+  .attribute-form .cancel {
+    background-color: red;
+  }
+  .attribute-form .btn:hover{
+    opacity: 1;
+  }
+
+  .attribute-form h2 {
+      font-weight: 700;
+  }
+
+
+
+
+
+  .title-popup {
+    display: none;
+    position: fixed;
+    left: 40%;
+    top: 20%;
+    border: 6px solid rgb(20, 40, 60);
+    z-index: 9;
+}
+
+.title-form {
+    max-width: 500px;
+    padding: 20px;
+    background-color: white;
+}
+
+.title-form input[type=text] {
+    width: 60%;
+    padding: 10px 5px 10px 5px;
+    margin: 5px 0 22px 0;
+    border: 3px solid;
+    border-radius: 10px;
+    color: black;
+    background: #f1f1f1;
+}
+
+.title-form input[type=text]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+.title-form .btn {
+    background-color: #3E3E3E;
+    color: black;
+    padding: 5px 15px;
+    border: none;
+    font-weight: 400;
+    margin-left: 20px;
+    cursor: pointer;
+    width: 40%;
+    height: 40px;
+    opacity: 0.8;
+  }
+
+  .title-form .cancel {
+    background-color: red;
+  }
+  .title-form .btn:hover{
+    opacity: 1;
+  }
+
+  .title-form h2 {
+      font-weight: 700;
+  }
+
+
+
+
+
+
+
+  .desc-popup {
+    display: none;
+    position: fixed;
+    left: 40%;
+    top: 20%;
+    border: 6px solid rgb(20, 40, 60);
+    z-index: 9;
+}
+
+.desc-form {
+    max-width: 500px;
+    padding: 20px;
+    background-color: white;
+}
+
+.desc-form input[type=text] {
+    width: 60%;
+    padding: 10px 5px 10px 5px;
+    margin: 5px 0 22px 0;
+    border: 3px solid;
+    border-radius: 10px;
+    color: black;
+    background: #f1f1f1;
+}
+
+.desc-form input[type=text]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+.desc-form .btn {
+    background-color: #3E3E3E;
+    color: black;
+    padding: 5px 15px;
+    border: none;
+    font-weight: 400;
+    margin-left: 20px;
+    cursor: pointer;
+    width: 40%;
+    height: 40px;
+    opacity: 0.8;
+  }
+
+  .desc-form .cancel {
+    background-color: red;
+  }
+  .attribute-form .btn:hover{
+    opacity: 1;
+  }
+
+  .desc-form h2 {
+      font-weight: 700;
+  }
+
+
+
+
+
+  
+
+.view-panel-table th {
+    border: 4px solid;
+    border-color: rgb(20, 40, 60);
+    padding: 5px 15px 5px 15px;
+}
+.title-row td {
+    border: 4px solid;
+    border-color: rgb(20, 40, 60);
+    padding: 5px 15px 5px 15px;
+    text-align: center;
+
+}
+
+.image {
+    width: 200px;
+}
+
+.file-log-panel {
+    padding-top: 400px;
+}
+
+
+.view-panel-image img {
+    width: 800px;
+
+}
+
+.view-panel-image {
+    text-align: center;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+
+a:link:hover {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    text-decoration: underline;
+    cursor: pointer;
+    cursor: hand;
+}
+
+
+input[type=submit], button {
+    cursor: pointer;
+    cursor: hand;
+}
+
+.scroll-table {
+    text-align: center;
+    font-weight: bold;
+    height: 1500px;
+    width: 100%;
+    overflow-y: scroll;
+
+}
+
+
+.svg-view-panel h2, .file-log-panel h2, .additional h2{
+    font-weight: 650;
+    color: #3E3E3E;
+}
+
+.create-svg h2, .add-shapes h2, .scaling h2 {
+    font-weight: 400;
+    font-size: x-large;
+    color: rgb(20, 40, 60);
+    margin-bottom: 30px;
+   
+    
+}
+
+.scaling select {
+    margin-right: 40px;
+}
+
+.add-shapes select {
+    margin-right: 40px;
+}
+
+.add-shapes input {
+    margin-right: 40px;
+}
+
+.create-svg, .add-shapes, .scaling {
+    text-align: center;
+    padding: 20px 5px 20px 5px;
+    margin-top: 50px;
+    border: 8px double black;
+    border-radius: 15px;
+}
+
+
+.scale-btn {
+    margin-top: 30px;
+    height: 30px;
+    width: 150px;
+    border-radius: 10px;
+}
+
+
+.scale-input {
+    padding: 3px 5px 5px 3px;
+    margin: 5px 0 22px 0;
+    border: 3px solid;
+    border-radius: 10px;
+    color: black;
+    background: #f1f1f1;
+}
+
+.scale-input[type=text]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+.rect-block, .circle-block {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.rect-block input, .circle-block input {
+    padding: 3px 5px 5px 3px;
+    border: 3px solid;
+    border-radius: 10px;
+    color: black;
+    background: #f1f1f1;
+}
+
+.rect-block input[type=number]:focus, .circle-block input[type=number]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+.rect-block input {
+    width: 150px;
+}
+
+
+.create-svg input {
+    padding: 3px 5px 5px 3px;
+    border: 3px solid;
+    border-radius: 10px;
+    color: black;
+    background: #f1f1f1;
+    width: 385px;
+    display: flex;
+}
+@media(max-width: 900px) {
+    html {
+        font-size: 14px !important;
+        width: 80% !important;
+    }
+}
+
+
+@media(max-width: 480px) {
+    html {
+        font-size: 12px !important;
+        width: 90% !important;
+    }
+}
+
+
+@media(max-width: 320px) {
+    html {
+        font-size: 12px !important;
+        width: 100% !important;
+    }
+}
